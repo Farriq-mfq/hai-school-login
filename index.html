@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hai school login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="coloum_image">
+                <h3>Hai ! School</h3>
+                <img src="Free Sport Fans Vector.svg" alt="Hello world">
+            </div>
+            <div class="coloum_login">
+                <div class="login">
+                    <div class="header_login">
+                        <div class="login_btn">
+                            <button type="button" id="btn__login">Login</button>
+                            <div class="line"></div>
+                        </div>
+                        <div class="register_btn">
+                            <button type="button" id="btn__register">Register</button>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <form id="login">
+                        <div class="group">
+                            <label for="Username">
+                                Username
+                            </label>
+                            <input type="text" id="Username" class="control_form">
+                        </div>
+                        <div class="group">
+                            <label for="Password">
+                                Password
+                            </label>
+                            <input type="text" id="Password" class="control_form">
+                        </div>
+                        <div class="group">
+                            <button>Submit</button>
+                        </div>
+                        <div class="group">
+                            <div class="forgot_pass">
+                                <a href="#">
+                                    Forgot Your password ?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <form id="register">
+                        <div class="group">
+                            <label for="Username">
+                                Username
+                            </label>
+                            <input type="text" id="Username" class="control_form">
+                        </div>
+                        <div class="group">
+                            <label for="Password">
+                                Password
+                            </label>
+                            <input type="password" id="Password" class="control_form">
+                        </div>
+                        <div class="group">
+                            <label for="Password">
+                                Confirm password
+                            </label>
+                            <input type="password" id="Password" class="control_form">
+                        </div>
+                        <div class="group">
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const login = document.getElementById('btn__login');
+        const register = document.getElementById('btn__register');
+        const Flogin = document.getElementById('login')
+        const Fregister = document.getElementById('register');
+        const Plogin = document.querySelector('.login')
+        login.addEventListener('click',function(){
+            Plogin.style.height = '380px'
+            Flogin.style.transform = 'translateY(0)';
+            Fregister.style.transform = 'translateY(-1000px)';
+            Fregister.style.display = 'none';
+            localStorage.setItem('register','');
+        })
+        register.addEventListener('click',function(){
+            Plogin.style.height = '460px'
+            Fregister.style.transform = 'translateY(-300px)';
+            Flogin.style.transform = 'translateY(1000px)';
+            Fregister.style.display = 'block';
+            localStorage.setItem('register',true);
+        })
+        if(localStorage.getItem('register')){
+            Plogin.style.height = '460px'
+            Fregister.style.transform = 'translateY(-300px)';
+            Flogin.style.transform = 'translateY(1000px)';
+            Fregister.style.display = 'block';
+        }
+        if(!localStorage.getItem('register')){
+            Plogin.style.height = '380px'
+            Flogin.style.transform = 'translateY(0)';
+            Fregister.style.transform = 'translateY(-1000px)';
+            Fregister.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
